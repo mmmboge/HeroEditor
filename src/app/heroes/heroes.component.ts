@@ -11,7 +11,6 @@ import { Response } from '@angular/http/src/static_response';
   styleUrls: ['./heroes.component.css'],
 })
 export class HeroesComponent implements OnInit {
-  selectedHero: Hero;
   heroes: Hero[];
   constructor(private heroService: HeroService, private router: Router) {
 
@@ -20,11 +19,5 @@ export class HeroesComponent implements OnInit {
     this.heroService.getHeroes().subscribe(res => {
       this.heroes = res;
     });
-  }
-  onSelect(hero: Hero) {
-    this.selectedHero = hero;
-  }
-  gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedHero.id]);
   }
 }
